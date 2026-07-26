@@ -1,1 +1,15 @@
-bm9kZV9tb2R1bGVzCmRpc3QKZGlzdC1zc3IKKi5sb2NhbAoudnNjb2RlLyoKIS52c2NvZGUvZXh0ZW5zaW9ucy5qc29uCi5pZGVhCi5EU19TdG9yZQoqLnN1bwoqLm50dnMqCiouaHByb2oKKi5zbG4KKi5zdz8K
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
