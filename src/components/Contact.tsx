@@ -37,7 +37,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.06 }}
-              className="inline-flex items-center gap-2 rounded-full border border-line bg-canvas-soft px-5 py-2.5 text-sm font-medium text-ink hover:border-accent hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 border border-line bg-canvas-soft px-5 py-2.5 text-sm font-medium text-ink hover:border-accent hover:text-accent transition-colors"
             >
               <Icon /> {link.label}
             </motion.a>

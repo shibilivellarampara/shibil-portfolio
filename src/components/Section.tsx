@@ -18,13 +18,15 @@ export default function Section({
     <section id={id} className={`py-24 px-6 ${className}`}>
       <div className="mx-auto max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
-          <p className="text-sm font-medium text-accent mb-2">{eyebrow}</p>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-ink mb-10">
+          <p className="font-mono text-xs text-accent mb-3 tracking-wide uppercase">
+            {eyebrow}
+          </p>
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-ink mb-10">
             {title}
           </h2>
         </motion.div>

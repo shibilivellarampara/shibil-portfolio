@@ -18,7 +18,7 @@ export default function Education() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="rounded-2xl border border-line bg-canvas p-6"
+            className="border border-line bg-canvas-soft p-6"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="text-lg font-medium text-ink">{edu.degree}</h3>
@@ -37,7 +37,7 @@ export default function Education() {
                     key={b}
                     className="text-sm text-muted flex items-start gap-2"
                   >
-                    <span className="mt-1.5 h-1 w-1 rounded-full bg-accent shrink-0" />
+                    <span className="mt-2 h-1 w-1 bg-accent shrink-0" />
                     {b}
                   </li>
                 ))}

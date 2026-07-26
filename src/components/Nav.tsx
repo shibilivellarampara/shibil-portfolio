@@ -13,10 +13,10 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-canvas/70 border-b border-line">
+    <header className="fixed top-0 inset-x-0 z-50 bg-canvas/90 backdrop-blur-sm border-b border-line">
       <nav className="mx-auto max-w-5xl px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="font-semibold text-ink tracking-tight">
-          Shibil Muhamed
+        <a href="#top" className="font-mono text-sm text-ink tracking-tight">
+          shibil<span className="text-accent">.</span>dev
         </a>
 
         <ul className="hidden md:flex items-center gap-8 text-sm text-muted">
@@ -35,9 +35,9 @@ export default function Nav() {
           className="md:hidden p-2 text-ink"
           aria-label="Toggle menu"
         >
-          <span className="block w-5 h-0.5 bg-ink mb-1" />
-          <span className="block w-5 h-0.5 bg-ink mb-1" />
-          <span className="block w-5 h-0.5 bg-ink" />
+          <span className="block w-5 h-px bg-ink mb-1.5" />
+          <span className="block w-5 h-px bg-ink mb-1.5" />
+          <span className="block w-5 h-px bg-ink" />
         </button>
       </nav>
 
