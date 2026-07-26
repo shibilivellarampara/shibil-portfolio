@@ -15,7 +15,7 @@ export default function Experience() {
             transition={{ duration: 0.4, delay: i * 0.1 }}
             className="relative"
           >
-            <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-accent" />
+            <span className="absolute -left-[calc(2rem+4px)] top-1.5 h-2 w-2 bg-accent" />
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="text-lg font-medium text-ink">{job.role}</h3>
               <span className="text-sm text-muted">{job.duration}</span>
@@ -33,7 +33,7 @@ export default function Experience() {
                     key={b}
                     className="text-sm text-muted flex items-start gap-2"
                   >
-                    <span className="mt-1.5 h-1 w-1 rounded-full bg-accent shrink-0" />
+                    <span className="mt-2 h-1 w-1 bg-accent shrink-0" />
                     {b}
                   </li>
                 ))}

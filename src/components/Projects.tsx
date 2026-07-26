@@ -19,7 +19,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="rounded-2xl border border-line bg-canvas p-6 flex flex-col hover:shadow-lg hover:shadow-accent-soft/40 transition-shadow"
+            className="border border-line bg-canvas p-6 flex flex-col hover:border-accent/50 transition-colors"
           >
             <h3 className="text-lg font-medium text-ink">{project.name}</h3>
             <p className="mt-2 text-sm text-muted leading-relaxed grow">
@@ -30,7 +30,7 @@ export default function Projects() {
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-xs rounded-full bg-canvas-soft border border-line px-2.5 py-1 text-muted"
+                  className="text-xs font-mono bg-canvas-soft border border-line px-2 py-1 text-muted"
                 >
                   {tech}
                 </span>

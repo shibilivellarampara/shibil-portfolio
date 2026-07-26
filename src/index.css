@@ -2,13 +2,14 @@
 
 @theme {
   --font-sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
-  --color-ink: #1a1a1f;
-  --color-muted: #6b6b76;
-  --color-canvas: #fbfaf8;
-  --color-canvas-soft: #f3f1ec;
-  --color-accent: #6d5bd0;
-  --color-accent-soft: #ece8fb;
-  --color-line: #e6e3dd;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  --color-ink: #e6e6ea;
+  --color-muted: #8b8f98;
+  --color-canvas: #0a0a0c;
+  --color-canvas-soft: #111114;
+  --color-accent: #5b9dd9;
+  --color-accent-soft: rgba(91, 157, 217, 0.1);
+  --color-line: #23242a;
 }
 
 html {
