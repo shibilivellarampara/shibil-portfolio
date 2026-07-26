@@ -6,7 +6,7 @@ export const profile = {
   location: "Kerala, India",
   email: "ShibilVellarampara@gmail.com",
   phone: "+91-9947919201",
-  resumeUrl: "/cv/shibil-muhamed-cv.pdf",
+  resumeUrl: "/cv/Java_developer_CV_Apr2025.pdf",
   social: {
     github: "https://github.com/shibilivellarampara",
     linkedin: "https://www.linkedin.com/in/shibil-muhamed-v-b51b55100/",
