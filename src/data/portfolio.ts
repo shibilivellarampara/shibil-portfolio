@@ -70,6 +70,7 @@ export type Project = {
   description: string;
   stack: string[];
   github?: string;
+  website?: string;
   live?: string;
   featured?: boolean;
 };
@@ -78,9 +79,10 @@ export const projects: Project[] = [
   {
     name: "Qelvix ERP",
     description:
-      "Generic multi-tenant ERP platform built for growing businesses, with Car Spot as its first live customer. Covers inventory, sales, and business operations, deployed on Railway with a full CI pipeline.",
-    stack: ["Spring Boot", "Angular", "PostgreSQL", "Docker", "Railway"],
-    live: "https://qelvix.up.railway.app",
+      "Generic multi-tenant ERP platform built for growing businesses, with Car Spot as its first live customer. Covers inventory, sales, and business operations, deployed with a full CI pipeline.",
+    stack: ["Spring Boot", "Angular", "PostgreSQL", "Docker"],
+    website: "https://qelvix.in",
+    live: "https://erp.qelvix.com",
     featured: true,
   },
   {

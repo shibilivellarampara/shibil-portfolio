@@ -12,6 +12,16 @@
   --color-line: #23242a;
 }
 
+[data-theme="light"] {
+  --color-ink: #16181d;
+  --color-muted: #62666f;
+  --color-canvas: #ffffff;
+  --color-canvas-soft: #f2f3f5;
+  --color-accent: #2f6fb0;
+  --color-accent-soft: rgba(47, 111, 176, 0.08);
+  --color-line: #e3e4e8;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -22,6 +32,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 ::selection {
