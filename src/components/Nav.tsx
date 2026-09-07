@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "#about", label: "About" },
@@ -19,26 +20,30 @@ export default function Nav() {
           shibil<span className="text-accent">.</span>dev
         </a>
 
-        <ul className="hidden md:flex items-center gap-8 text-sm text-muted">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="hover:text-ink transition-colors">
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-4">
+          <ul className="hidden md:flex items-center gap-8 text-sm text-muted">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="hover:text-ink transition-colors">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <button
-          type="button"
-          onClick={() => setOpen((o) => !o)}
-          className="md:hidden p-2 text-ink"
-          aria-label="Toggle menu"
-        >
-          <span className="block w-5 h-px bg-ink mb-1.5" />
-          <span className="block w-5 h-px bg-ink mb-1.5" />
-          <span className="block w-5 h-px bg-ink" />
-        </button>
+          <ThemeToggle />
+
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            className="md:hidden p-2 text-ink"
+            aria-label="Toggle menu"
+          >
+            <span className="block w-5 h-px bg-ink mb-1.5" />
+            <span className="block w-5 h-px bg-ink mb-1.5" />
+            <span className="block w-5 h-px bg-ink" />
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>

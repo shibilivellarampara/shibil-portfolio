@@ -48,6 +48,16 @@ export default function Projects() {
                   <FiGithub /> Code
                 </a>
               )}
+              {project.website && (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-accent transition-colors"
+                >
+                  <FiExternalLink /> Website
+                </a>
+              )}
               {project.live && (
                 <a
                   href={project.live}
@@ -55,7 +65,7 @@ export default function Projects() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-accent transition-colors"
                 >
-                  <FiExternalLink /> Live
+                  <FiExternalLink /> Live App
                 </a>
               )}
             </div>
