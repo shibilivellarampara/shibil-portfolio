@@ -1,49 +1,58 @@
-import { motion } from "framer-motion";
-import Section from "./Section";
+import { GraduationCap } from "lucide-react";
 import { education } from "../data/portfolio";
+import Section from "./Section";
+import Reveal from "./ui/Reveal";
 
 export default function Education() {
   return (
     <Section
       id="education"
-      eyebrow="Education"
+      index="05"
+      eyebrow="education"
       title="Academic background"
-      className="bg-canvas-soft/50"
+      className="pt-0 sm:pt-0"
     >
-      <div className="space-y-8">
+      <div className="space-y-4">
         {education.map((edu, i) => (
-          <motion.div
-            key={edu.school}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="border border-line bg-canvas-soft p-6"
-          >
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-lg font-medium text-ink">{edu.degree}</h3>
-              <span className="text-sm text-muted">{edu.duration}</span>
-            </div>
-            <p className="mt-1 text-sm font-medium text-accent">
-              {edu.school}
-            </p>
-            <p className="mt-3 text-muted text-sm leading-relaxed">
-              {edu.description}
-            </p>
-            {edu.bullets.length > 0 && (
-              <ul className="mt-3 space-y-1.5">
-                {edu.bullets.map((b) => (
-                  <li
-                    key={b}
-                    className="text-sm text-muted flex items-start gap-2"
-                  >
-                    <span className="mt-2 h-1 w-1 bg-accent shrink-0" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </motion.div>
+          <Reveal key={edu.school} delay={i * 0.08}>
+            <article className="flex gap-4 rounded-xl border border-line bg-card p-5 sm:p-6">
+              <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent sm:flex">
+                <GraduationCap size={20} aria-hidden />
+              </span>
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="text-base font-semibold text-ink">
+                    {edu.degree}
+                  </h3>
+                  <span className="font-mono text-xs text-muted">
+                    {edu.duration}
+                  </span>
+                </div>
+                <p className="mt-0.5 text-sm font-medium text-accent">
+                  {edu.school}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {edu.description}
+                </p>
+                {edu.bullets.length > 0 && (
+                  <ul className="mt-3 space-y-1.5">
+                    {edu.bullets.map((b) => (
+                      <li
+                        key={b}
+                        className="flex items-start gap-2 text-sm text-muted"
+                      >
+                        <span
+                          aria-hidden
+                          className="mt-2 h-1 w-1 shrink-0 rounded-sm bg-accent"
+                        />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </article>
+          </Reveal>
         ))}
       </div>
     </Section>
