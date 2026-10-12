@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FiMoon, FiSun } from "react-icons/fi";
+import { Moon, Sun } from "lucide-react";
 
 type Theme = "light" | "dark";
 
@@ -20,10 +20,10 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-      className="p-2 text-muted hover:text-ink transition-colors"
+      className="rounded-md p-2 text-muted transition-colors hover:bg-card hover:text-ink"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
-      {theme === "dark" ? <FiSun size={16} /> : <FiMoon size={16} />}
+      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
     </button>
   );
 }

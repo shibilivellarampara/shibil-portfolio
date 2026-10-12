@@ -1,71 +1,115 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, Terminal, X } from "lucide-react";
+import { navLinks } from "../data/portfolio";
+import Container from "./ui/Container";
 import ThemeToggle from "./ThemeToggle";
 
-const links = [
-  { href: "#about", label: "About" },
-  { href: "#education", label: "Education" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-];
+/** Terminal-style call to action, shared by the desktop bar and the mobile menu. */
+function HireButton({
+  onClick,
+  className = "",
+}: {
+  onClick?: () => void;
+  className?: string;
+}) {
+  return (
+    <a
+      href="#contact"
+      onClick={onClick}
+      className={`items-center gap-1.5 rounded-md border border-accent/40 bg-accent-soft px-3 py-1.5 font-mono text-xs text-accent transition-colors hover:bg-accent hover:text-on-accent ${className}`}
+    >
+      <span className="opacity-60">$</span> hire_engineer.sh
+    </a>
+  );
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
-  return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-canvas/90 backdrop-blur-sm border-b border-line">
-      <nav className="mx-auto max-w-5xl px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="font-mono text-sm text-ink tracking-tight">
-          shibil<span className="text-accent">.</span>dev
-        </a>
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-        <div className="flex items-center gap-4">
-          <ul className="hidden md:flex items-center gap-8 text-sm text-muted">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="hover:text-ink transition-colors">
-                  {l.label}
+  return (
+    <header className="sticky top-0 z-50 border-b border-line bg-canvas/75 backdrop-blur-md">
+      <Container>
+        <nav
+          aria-label="Primary"
+          className="flex h-16 items-center justify-between gap-4"
+        >
+          <a
+            href="#top"
+            className="flex items-center gap-2 font-mono text-sm font-medium tracking-tight text-ink"
+          >
+            <Terminal size={16} className="text-accent" aria-hidden />
+            <span>
+              shibil<span className="text-accent">.</span>dev
+            </span>
+          </a>
+
+          <ul className="hidden items-center gap-7 text-sm text-muted md:flex">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="transition-colors hover:text-ink"
+                >
+                  {link.label}
                 </a>
               </li>
             ))}
           </ul>
 
-          <ThemeToggle />
-
-          <button
-            type="button"
-            onClick={() => setOpen((o) => !o)}
-            className="md:hidden p-2 text-ink"
-            aria-label="Toggle menu"
-          >
-            <span className="block w-5 h-px bg-ink mb-1.5" />
-            <span className="block w-5 h-px bg-ink mb-1.5" />
-            <span className="block w-5 h-px bg-ink" />
-          </button>
-        </div>
-      </nav>
+          <div className="flex items-center gap-2">
+            <HireButton className="hidden sm:inline-flex" />
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setOpen((o) => !o)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              className="rounded-md p-2 text-ink transition-colors hover:bg-card md:hidden"
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+        </nav>
+      </Container>
 
       <AnimatePresence>
         {open && (
-          <motion.ul
+          <motion.div
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden border-t border-line bg-canvas"
+            className="overflow-hidden border-t border-line bg-canvas md:hidden"
           >
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block px-6 py-3 text-sm text-muted hover:text-ink"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </motion.ul>
+            <Container className="py-3">
+              <ul>
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-3 text-sm text-muted transition-colors hover:text-ink"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <HireButton
+                onClick={() => setOpen(false)}
+                className="mb-2 mt-2 inline-flex sm:hidden"
+              />
+            </Container>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>

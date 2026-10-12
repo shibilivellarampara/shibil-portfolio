@@ -1,23 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0d12" />
     <meta
       name="description"
-      content="Shibil Muhamed V — Senior Java Backend Developer. Portfolio of education, work experience, and projects."
+      content="Shibil Muhamed V — Senior Java backend engineer building resilient, low-latency distributed systems with Spring Boot, PostgreSQL, Docker, and cloud platforms."
     />
-    <title>Shibil Muhamed V — Portfolio</title>
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Shibil Muhamed V — Senior Java Backend Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Spring Boot microservices, multi-tenant platforms, and cloud-native deployments that hold up in production."
+    />
+    <title>Shibil Muhamed V — Senior Java Backend Engineer</title>
     <script>
+      // Dark is the default; a visitor's saved choice wins.
       (function () {
         var stored = localStorage.getItem("theme");
-        var theme =
-          stored ||
-          (window.matchMedia("(prefers-color-scheme: light)").matches
-            ? "light"
-            : "dark");
-        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.setAttribute(
+          "data-theme",
+          stored === "light" ? "light" : "dark",
+        );
       })();
     </script>
   </head>
